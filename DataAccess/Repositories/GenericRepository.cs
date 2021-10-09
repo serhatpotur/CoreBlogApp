@@ -3,6 +3,7 @@ using DataAccess.Concrate;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -23,7 +24,7 @@ namespace DataAccess.Repositories
             context.SaveChanges();
         }
 
-        public List<T> GetAll()
+        public List<T> GetList()
         {
 
             return context.Set<T>().ToList();
@@ -39,6 +40,11 @@ namespace DataAccess.Repositories
         {
             context.Update(entity);
             context.SaveChanges();
+        }
+
+        public List<T> GetList(Expression<Func<T, bool>> filter)
+        {
+            return context.Set<T>().Where(filter).ToList();
         }
     }
 }

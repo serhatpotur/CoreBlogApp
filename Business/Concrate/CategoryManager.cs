@@ -1,4 +1,5 @@
 ﻿using Business.Abstract;
+using DataAccess.Abstract;
 using DataAccess.EntityFramework;
 using Entity.Concrate;
 using System;
@@ -11,34 +12,34 @@ namespace Business.Concrate
 {
     public class CategoryManager : ICategoryService
     {
-        EfCategoryDal efCategoryDal;
-        public CategoryManager()
+        ICategoryDal _categoryDal;
+        public CategoryManager(ICategoryDal categoryDal)
         {
-            efCategoryDal = new EfCategoryDal();
+            _categoryDal = categoryDal;
         }
         public void Add(Category category)
         {
-            efCategoryDal.Insert(category);
+            _categoryDal.Insert(category);
         }
 
         public void Delete(Category category)
         {
-            efCategoryDal.Delete(category);
+            _categoryDal.Delete(category);
         }
 
         public List<Category> GetAll()
         {
-            return efCategoryDal.GetAll();
+            return _categoryDal.GetList();
         }
 
         public Category GetById(int id)
         {
-            return efCategoryDal.GetById(id);
+            return _categoryDal.GetById(id);
         }
 
         public void Update(Category category)
         {
-            efCategoryDal.Update(category);
+            _categoryDal.Update(category);
         }
     }
 }

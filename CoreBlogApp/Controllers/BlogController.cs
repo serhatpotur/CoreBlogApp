@@ -8,13 +8,19 @@ using System.Threading.Tasks;
 
 namespace CoreBlogApp.Controllers
 {
-    public class CategoryController : Controller
+    public class BlogController : Controller
     {
-        CategoryManager categoryManager = new CategoryManager(new EfCategoryDal());
+        BlogManager blogManager = new BlogManager(new EfBlogDal());
         public IActionResult Index()
         {
-            var values = categoryManager.GetAll();
+            var values = blogManager.GetBlogListWithCategory();
             return View(values);
+        }
+
+        public IActionResult BlogDetails(int id)
+        {
+            var value = blogManager.GetById(id);
+            return View(value);
         }
     }
 }
