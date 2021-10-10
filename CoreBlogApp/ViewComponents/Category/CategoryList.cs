@@ -6,12 +6,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace CoreBlogApp.Controllers
+namespace CoreBlogApp.ViewComponents.Category
 {
-    public class CategoryController : Controller
+    public class CategoryList:ViewComponent
     {
         CategoryManager categoryManager = new CategoryManager(new EfCategoryDal());
-        public IActionResult Index()
+        public IViewComponentResult Invoke()
         {
             var values = categoryManager.GetList();
             return View(values);

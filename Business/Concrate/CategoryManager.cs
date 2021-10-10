@@ -27,7 +27,7 @@ namespace Business.Concrate
             _categoryDal.Delete(category);
         }
 
-        public List<Category> GetAll()
+        public List<Category> GetList()
         {
             return _categoryDal.GetList();
         }

@@ -27,7 +27,7 @@ namespace Business.Concrate
             _blogDal.Delete(blog);
         }
 
-        public List<Blog> GetAll()
+        public List<Blog> GetList()
         {
             return _blogDal.GetList();
         }

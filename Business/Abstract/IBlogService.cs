@@ -9,7 +9,7 @@ namespace Business.Abstract
 {
     public interface IBlogService
     {
-        List<Blog> GetAll();
+        List<Blog> GetList();
         List<Blog> GetBlogListWithCategory();
         Blog GetById(int id);
         void Add(Blog blog);
