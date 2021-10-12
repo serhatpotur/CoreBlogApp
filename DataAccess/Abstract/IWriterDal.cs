@@ -9,5 +9,6 @@ namespace DataAccess.Abstract
 {
     public interface IWriterDal : IGenericDal<Writer>
     {
+        Writer GetWriterMailPassword(string mail,string password);
     }
 }

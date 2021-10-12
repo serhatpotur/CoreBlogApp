@@ -47,5 +47,10 @@ namespace Business.Concrate
         {
             _blogDal.Update(blog);
         }
+
+        public List<Blog> GetBlogListByWriter(int id)
+        {
+            return _blogDal.GetList(x => x.WriterID == id);
+        }
     }
 }

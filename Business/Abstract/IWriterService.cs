@@ -11,6 +11,7 @@ namespace Business.Abstract
     {
         List<Writer> GetList();
         Writer GetById(int id);
+        Writer GetWriterMailPassword(string mail, string password);
         void Add(Writer writer);
         void Delete(Writer writer);
         void Update(Writer writer);
